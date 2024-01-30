@@ -9,6 +9,12 @@
     />
   </head>
   <body>
+    <nav>
+      <ul>
+        <li><a href="{{ url_for('listAllVendors') }}">All Vendors</a></li>
+        <li><a href="{{ url_for('addNew') }}">New Vendor</a></li>
+      </ul>
+    </nav>
     <ul>
       <li>
         <a href="{{ url_for('addNew') }}">Add new vendor</a>
