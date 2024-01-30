@@ -1,0 +1,79 @@
+<html>
+  <head>
+    <title>{{ name }}</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <style>
+      table,
+      tr,
+      th,
+      td {
+        border: 2px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <form action="/updateVendor" method="POST">
+      <label for="date">Date</label>
+      <input type="date" name="date" id="date" /><br />
+      <label for="amount">Amount</label>
+      <input type="text" name="amount" id="amount" /><br />
+      <label for="from">Given From</label>
+      <select name="from" id="from">
+        <option value="Atiya Sultana">Atiya Sultana</option>
+        <option value="Aqeel Khan">Aqeel Khan</option>
+        <option value="Chand Bibi">Chand Bibi</option>
+      </select>
+      <br />
+      <label for="type">Payment Type</label>
+      <select name="type" id="type">
+        <option value="paid">Paid</option>
+        <option value="newBill">New Bill</option>
+      </select>
+      <br />
+      <input type="hidden" name="name" value="{{ name }}" />
+      <input type="submit" value="Submit" />
+    </form>
+    <form action="/getOneVendor" method="POST">
+      <label for="from">From</label>
+      <input type="date" id="from" name="from" value="###" />
+      <label for="to">To</label>
+      <input type="date" id="to" name="to" value="###" />
+      <label for="givenFrom">Given From:</label>
+      <select name="givenFrom" id="givenFrom">
+        <option value="###">Select one</option>
+        <option value="Aqeel Khan">Aqeel Khan</option>
+        <option value="Atiya Sultana">Atiya Sultana</option>
+        <option value="Chand Bibi">Chand Bibi</option>
+      </select>
+      <input type="hidden" name="name" value="{{ name }}" />
+      <input type="submit" value="Submit" />
+    </form>
+    <form action="/resetTable" , method="POST">
+      <input type="hidden" name="name" value="{{ name }}" />
+      <button type="submit">Reset</button>
+    </form>
+    <table>
+      <tr>
+        <th>Date</th>
+        <th>Due</th>
+        <th>Given</th>
+        <th>Remaining</th>
+        <th>Given From</th>
+      </tr>
+      {% for i in range(length) %}
+      <tr>
+        <td>{{ allData[0][i] }}</td>
+        <td>{{ allData[1][i] }}</td>
+        <td>{{ allData[2][i] }}</td>
+        <td>{{ allData[3][i] }}</td>
+        <td>{{ allData[4][i] }}</td>
+      </tr>
+      {% endfor %}
+    </table>
+  </body>
+</html>
