@@ -7,14 +7,32 @@
       integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
       crossorigin="anonymous"
     />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
   </head>
   <body>
-    <ul>
+    <div>
+      <nav>
+        <ul>
+          <li><a href="{{ url_for('verifyLogin') }}">Dashboard</a></li>
+          <li><a href="{{ url_for('listAllVendors') }}">All Vendors</a></li>
+          <li><a href="{{ url_for('addNew') }}">New Vendor</a></li>
+        </ul>
+      </nav>
+    </div>
+    <ul class="list-group vendorList">
       {% for vendor in vendors %}
-      <li>
+      <li class="list-group-item">
         <form action="/getOneVendor" method="POST">
           <input type="hidden" value="{{ vendor }}" name="name" />
-          <input type="submit" value="{{ vendor }}" />
+          <input
+            type="submit"
+            value="{{ vendor }}"
+            class="btn btn-lg btn-success"
+          />
         </form>
       </li>
       {% endfor %}

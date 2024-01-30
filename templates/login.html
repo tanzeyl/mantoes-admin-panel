@@ -7,19 +7,30 @@
       integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
       crossorigin="anonymous"
     />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
   </head>
   <body>
-    {% if message %}
-    <center>
-      <h3><em>{{ message }}</em></h3>
-    </center>
-    {% endif %}
-    <form action="/verifyLogin" method="POST">
-      <label for="username">Username</label>
-      <input type="text" name="username" />
-      <label for="password">Password</label>
-      <input type="password" name="password" />
-      <input type="submit" value="Submit" />
-    </form>
+    <div class="container">
+      {% if message %}
+      <center>
+        <h3><em>{{ message }}</em></h3>
+      </center>
+      {% endif %}
+      <form action="/verifyLogin" method="POST" class="loginForm">
+        <div class="mb-3">
+          <label for="username" class="form-label">Username</label>
+          <input type="text" name="username" class="form-control" />
+        </div>
+        <div class="mb-3">
+          <label for="password" class="form-label">Password</label>
+          <input type="password" name="password" class="form-control" />
+        </div>
+        <input type="submit" value="Submit" class="btn btn-lg btn-success" />
+      </form>
+    </div>
   </body>
 </html>

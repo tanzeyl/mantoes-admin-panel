@@ -14,19 +14,33 @@
     />
   </head>
   <body>
-    <nav>
-      <ul>
-        <li><a href="{{ url_for('listAllVendors') }}">All Vendors</a></li>
-        <li><a href="{{ url_for('addNew') }}">New Vendor</a></li>
+    <div>
+      <nav>
+        <ul>
+          <li><a href="{{ url_for('verifyLogin') }}">Dashboard</a></li>
+          <li><a href="{{ url_for('listAllVendors') }}">All Vendors</a></li>
+          <li><a href="{{ url_for('addNew') }}">New Vendor</a></li>
+        </ul>
+      </nav>
+    </div>
+    {% if message %}
+    <div class="message">
+      <center>{{ message }}</center>
+    </div>
+    {% endif %}
+    <div class="container actionList">
+      <ul class="list-group">
+        <li class="list-group-item">
+          <a href="{{ url_for('addNew') }}" class="actionLink"
+            >Add new vendor</a
+          >
+        </li>
+        <li class="list-group-item">
+          <a href="{{ url_for('listAllVendors') }}" class="actionLink"
+            >List all vendors</a
+          >
+        </li>
       </ul>
-    </nav>
-    <ul>
-      <li>
-        <a href="{{ url_for('addNew') }}">Add new vendor</a>
-      </li>
-      <li>
-        <a href="{{ url_for('listAllVendors') }}">List all vendors</a>
-      </li>
-    </ul>
+    </div>
   </body>
 </html>

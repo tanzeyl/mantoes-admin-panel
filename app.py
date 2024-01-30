@@ -1,9 +1,11 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, session
 import pandas as pd
 from datetime import datetime
 import os
 
 app = Flask(__name__)
+app.secret_key = 'secret'
+
 formData = {}
 
 def fetchData(name, fromDate, toDate, givenFrom):
@@ -30,11 +32,17 @@ def home():
 
 @app.route("/verifyLogin", methods = ["GET", "POST"])
 def verifyLogin():
-  username = request.form.get("username")
-  password = request.form.get("password")
+  if session.get("username", None) is not None:
+    username = session.get("username", None)
+    password = session.get("password", None)
+  else:
+    username = request.form.get("username")
+    password = request.form.get("password")
   envUsername = os.environ["MantoesUsername"]
   envPassword = os.environ["MantoesPassword"]
   if username == envUsername and password == envPassword:
+    session["username"] = username
+    session["password"] = password
     return render_template("index.html")
   else:
     return render_template("login.html", message = "Incorrect credentials.")
@@ -50,7 +58,7 @@ def getVendorData():
   text = f"{name} - {product}"
   with open("Vendors.txt", "a") as f:
     f.write(f"{text}\n")
-  return render_template("addNew.html")
+  return render_template("index.html", message = "Vendor added successfully.")
 
 @app.route("/listAllVendors", methods = ["GET", "POST"])
 def listAllVendors():
