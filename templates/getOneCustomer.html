@@ -39,12 +39,12 @@
       </button>
       <form action="/resetTable" , method="POST" class="resetForm">
         <input type="hidden" name="name" value="{{ name }}" />
-        <input type="hidden" name="type" value="vendor" />
+        <input type="hidden" name="type" value="customer" />
         <button type="submit" class="btn btn-lg btn-outline-success">
           Reset
         </button>
       </form>
-      <form action="/updateVendor" method="POST" id="updateForm">
+      <form action="/updateCustomer" method="POST" id="updateForm">
         <div class="mb-3">
           <label for="date" class="form-label">Date</label>
           <input type="date" name="date" id="date" class="form-control" />
@@ -54,8 +54,8 @@
           <input type="text" name="amount" id="amount" class="form-control" />
         </div>
         <div class="mb-3">
-          <label for="from" class="form-label">Given From</label>
-          <select name="from" id="from" class="form-control">
+          <label for="to" class="form-label">Given To</label>
+          <select name="to" id="to" class="form-control">
             <option value="Atiya Sultana">Atiya Sultana</option>
             <option value="Aqeel Khan">Aqeel Khan</option>
             <option value="Chand Bibi">Chand Bibi</option>
@@ -71,7 +71,7 @@
         <input type="hidden" name="name" value="{{ name }}" />
         <input type="submit" value="Submit" class="btn btn-md btn-success" />
       </form>
-      <form action="/getOneVendor" method="POST" id="filterForm">
+      <form action="/getOneCustomer" method="POST" id="filterForm">
         <div class="mb-3">
           <label for="from" class="form-label">From</label>
           <input
@@ -93,8 +93,8 @@
           />
         </div>
         <div class="mb-3">
-          <label for="givenFrom" class="form-label">Given From:</label>
-          <select name="givenFrom" id="givenFrom" class="form-control">
+          <label for="givenTo" class="form-label">Given To:</label>
+          <select name="givenTo" id="givenTo" class="form-control">
             <option value="###">Select one</option>
             <option value="Aqeel Khan">Aqeel Khan</option>
             <option value="Atiya Sultana">Atiya Sultana</option>

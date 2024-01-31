@@ -18,8 +18,6 @@
       <nav>
         <ul>
           <li><a href="{{ url_for('verifyLogin') }}">Dashboard</a></li>
-          <li><a href="{{ url_for('listAllVendors') }}">All Vendors</a></li>
-          <li><a href="{{ url_for('addNew') }}">New Vendor</a></li>
         </ul>
       </nav>
     </div>
@@ -38,6 +36,16 @@
         <li class="list-group-item">
           <a href="{{ url_for('listAllVendors') }}" class="actionLink"
             >List all vendors</a
+          >
+        </li>
+        <li class="list-group-item">
+          <a href="{{ url_for('newCustomer') }}" class="actionLink"
+            >Add New Customer</a
+          >
+        </li>
+        <li class="list-group-item">
+          <a href="{{ url_for('listAllCustomers') }}" class="actionLink"
+            >List all customers</a
           >
         </li>
       </ul>

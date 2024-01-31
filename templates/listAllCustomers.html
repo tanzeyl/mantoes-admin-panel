@@ -22,13 +22,13 @@
       </nav>
     </div>
     <ul class="list-group vendorList">
-      {% for vendor in vendors %}
+      {% for customer in customers %}
       <li class="list-group-item">
-        <form action="/getOneVendor" method="POST">
-          <input type="hidden" value="{{ vendor }}" name="name" />
+        <form action="/getOneCustomer" method="POST">
+          <input type="hidden" value="{{ customer }}" name="name" />
           <input
             type="submit"
-            value="{{ vendor }}"
+            value="{{ customer }}"
             class="btn btn-lg btn-success"
           />
         </form>
