@@ -9,6 +9,7 @@ body {
   height: 100vh;
   font-family: "Roboto", sans-serif;
   font-family: "Roboto Condensed", sans-serif;
+  font-size: 3em;
 }
 
 table,
@@ -99,7 +100,6 @@ nav a {
   color: white;
 }
 
-/* Remove list bullets */
 nav ul li {
   list-style: none;
 }
