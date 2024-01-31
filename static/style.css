@@ -53,6 +53,8 @@ td {
   padding: 2%;
   background-color: rgba(0, 0, 0, 0.4);
   box-shadow: 2px 5px 0 black;
+  width: 98%;
+  height: 70%;
 }
 
 .actionList {
